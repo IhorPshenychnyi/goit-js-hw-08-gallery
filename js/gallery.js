@@ -40,15 +40,18 @@ function onGalleryContainerClick(event) {
     event.preventDefault();
     if (!event.target.classList.contains('gallery__image')) {
         return ;
-    } else { event.target.dataset.source };
+    } 
     modalWindow.classList.add('is-open');
     currentImage.src = event.target.dataset.source;
+    currentImage.alt = event.target.alt;
     window.addEventListener('keydown', onEscKeyPress)
 }
 
 function onCloseModal() {
     window.removeEventListener('keydown', onEscKeyPress);
     modalWindow.classList.remove('is-open');
+    currentImage.src = '';
+    currentImage.alt = '';
 }
 
 function onOverlayClick() {
